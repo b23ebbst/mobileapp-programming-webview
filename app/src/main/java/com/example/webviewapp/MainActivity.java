@@ -17,11 +17,11 @@ public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
 
     public void showExternalWebPage(){
-        // TODO: Add your code for showing external web page here
+        myWebView.loadUrl("https://his.se");
     }
 
     public void showInternalWebPage(){
-        // TODO: Add your code for showing internal web page here
+        myWebView.loadUrl("file:///android_asset/about.html");
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -33,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         myWebView = findViewById(R.id.my_webview);
-        myWebView.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
+        myWebView.setWebViewClient(new WebViewClient()); // Do not open in Chrome
         myWebView.loadUrl("https://his.se");
+        myWebView.loadUrl("file:///android_asset/about.html");
 
         WebView myWebView = findViewById(R.id.my_webview);
         WebSettings webSettings = myWebView.getSettings();
