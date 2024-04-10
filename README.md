@@ -1,39 +1,30 @@
 
 # Rapport
 
-**Skriv din rapport här!**
+Namn på appen har ändrats, internetåtkomst har lagts till, och JavaScript har aktiverats (enabled).
+Har lagt in en internal och external web, där external visar HIS-hemsida. En funktion för att
+visa HIS.se har skapats som kallas "showExternalWebPage()" där url har inkluderats i en WebView.
+För att växla mellan internal och external har sedan denna funktion infogats i funktionen 
+"onOptionsItemSelected(MenuItem item)". Se kodsnuttar nedan. Samma sak har gjorts för internal
+men då med koppling till html-dokumentet "about.html".
 
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
-
+Kodexempel för att visa external web, och sedan kalla på denna funktion i drop-down menyn:
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
+    public void showExternalWebPage(){
+        myWebView.loadUrl("https://his.se");
     }
-}
+    
+    if (id == R.id.action_external_web) {
+        showExternalWebPage();
+        Log.d("==>","Will display external web page");
+        return true;
+    }
 ```
 
-Bilder läggs i samma mapp som markdown-filen.
+Skärmdumpar på internal och external WebView:
 
-![](android.png)
+![](Screenshot_internal.png)
+![](Screenshot_external.png)
 
 Läs gärna:
 
